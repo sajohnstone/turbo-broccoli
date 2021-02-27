@@ -10,6 +10,6 @@
   },
   "scripts": {
     "test": "jest",
-    "build": "mkdir -p ./dist && cp package.json dist/ && cp index.js dist/ && cp s3Service.js dist"
+    "build": "mkdir -p ./dist && cp package.json dist/ && cp index.js dist/ && cp s3Service.js dist && cp csvToJson.js dist"
   }
 }

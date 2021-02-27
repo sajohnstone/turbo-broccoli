@@ -1,6 +1,10 @@
 # turbo-broccoli
 
-This is a example project using a Lambda, S3 and API Gateway to provide a basic REST endpoint.
+This is a example project using a Lambda, S3 and API Gateway to provide a basic REST endpoint.  I should point out that I'm not
+generally a Node developer, but I need something that would be 'lite' enought to use for a Lambda and always enjoy a challange.
+The purpose of this project is to generate the timezone from a given list of device Ids.  Currently it's not fetching the timezone
+mainly as I couldn't find anywhere that will do the conversion without the API key of some kind.  However that was my proposed method
+and a simple API call would have given that result.
 
 ## Getting started
 
@@ -41,6 +45,7 @@ These are some of the assuptions I've taken:-
 - For a larger project I'd organise my TF files into modules, but it doesn't make sense here
 - Optimize the lambda by using something like Webpack
 - Add in static code analysis
+- To avoid having to create lambda layers I've kept the code simple with no dependancies
 
 ## CI
 
