@@ -9,6 +9,7 @@
     "aws-sdk": "2.631.0"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "mkdir -p ./dist && cp package.json dist/ && cp index.js dist/ && cp s3Service.js dist"
   }
 }

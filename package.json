@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "postinstall": "cd lambda/get_device_reading/ && npm install",
-    "test": "cd lambda/get_device_reading/ && npm test"
+    "test": "cd lambda/get_device_reading/ && npm test",
+    "build": "cd lambda/get_device_reading/ && npm run build"
   }
 }

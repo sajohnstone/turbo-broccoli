@@ -1,22 +1,27 @@
 const aws = require('aws-sdk');
 const s3 = new aws.S3(); 
 const { getObject } = require('./s3Service')
+const mockResponse = {
+  "AcceptRanges": "bytes",
+  "LastModified": "2021-02-27T15:22:36.000Z",
+  "ContentLength": 372,
+  "ETag": "\"85262fc380f9d76ec0f9845479efda57\"",
+  "ContentType": "binary/octet-stream",
+  "Metadata": {},
+  "Body": {
+    "type": "Buffer",
+    "data": [
+      105,
+      100]
+  }
+}
 
 jest.mock('aws-sdk')
 
 describe('s3Service getObject', () => {
   beforeEach(() => {
     const s3GetObjectPromise = jest.fn().mockReturnValue({
-      promise: jest.fn().mockResolvedValue({
-        Parameter: {
-          Name: 'NAME',
-          Type: 'SecureString',
-          Value: 'VALUE',
-          Version: 1,
-          LastModifiedDate: 1546551668.495,
-          ARN: 'arn:aws:ssm:ap-southeast-2:123:NAME'
-        }
-      })
+      promise: jest.fn().mockResolvedValue(mockResponse)
     })
 
     aws.S3.mockImplementation(() => ({
@@ -24,14 +29,8 @@ describe('s3Service getObject', () => {
     }))
   })
 
-  /*
-  test.only('my only true test', () => {
-    expect(1 + 1).toEqual(2);
-  });
-  */
-
   test('it should get value from S3', async () => {
     expect.assertions(1)
-    await expect(getObject('NAME','VALUE')).resolves.toBe('VALUE')
+    await expect(getObject('NAME','VALUE')).resolves.toBe(mockResponse)
   })
 })
