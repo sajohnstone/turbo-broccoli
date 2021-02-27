@@ -1,0 +1,9 @@
+{
+  "name": "turbo-broccoli",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "postinstall": "cd lambda/get_device_reading/ && npm install",
+    "test": "cd lambda/get_device_reading/ && npm test"
+  }
+}
