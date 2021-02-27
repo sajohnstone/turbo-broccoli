@@ -27,6 +27,6 @@ describe('lambdaService', () => {
       }),
     };
     const actualValue = await lambdaService.handler(mEvent);
-    expect(actualValue).toEqual({ statusCode: 500, body: JSON.stringify({ message: mResponse.message }) });
+    expect(actualValue).toEqual(mResponse);
   });
 });
