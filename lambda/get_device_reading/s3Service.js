@@ -7,7 +7,7 @@ exports.getObject = async (name, key) => {
       Key: key // path to the object you're looking for
   }
 
-  const result = await s3.getObject(params).promise();
+  const result = await s3.getObject(params);
 
   return result;
 }
