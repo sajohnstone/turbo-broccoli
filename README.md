@@ -14,12 +14,14 @@ Before getting started you will need:-
 - Node
 - AWS Cli
 
-To deploy do the following
+To deploy do the following:-
 
 ```bash
 make deploy
-make test
 ```
+
+This will deploy to your AWS env as setup in the AWS CLI.  It should also output an endpoint which can be used for testing or you can 
+test using the AWS console.
 
 ## Adherence to best practices
 

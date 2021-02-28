@@ -23,8 +23,12 @@ jest.mock('aws-sdk', () => {
   return { S3: jest.fn(() => mockS3Instance) };
 });
 
-describe('61830632', () => {
-  it('should get correctly correctly', async () => {
+describe('S3 Service', () => {
+  beforeEach(() => {
+    jest.restoreAllMocks();
+  });
+
+  it('should GET S3 object correctly', async () => {
     const actual = await getObject('bucket-name', 'bucket-key');
     expect(actual).toEqual(mockResponse);
     expect(mockS3Instance.getObject).toBeCalledWith({ Bucket: 'bucket-name', Key: 'bucket-key' });
